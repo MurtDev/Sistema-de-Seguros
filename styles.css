@@ -1,0 +1,295 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    /* Fondo gris suave */
+    color: #fff;
+    /* Texto blanco por defecto */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #272727;
+    /* Fondo negro */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.main-panel {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.display {
+    border: 3px solid #daf206;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 320px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    background-color: #2def37;
+    color: #000;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.row1 {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px;
+}
+
+.title-row {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.button-label {
+    text-align: center;
+    margin-bottom: 5px;
+    font-size: 12px;
+}
+
+.row>div,
+.control-buttons>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row button,
+.control-buttons button {
+    width: 70px;
+    /* Aumentar el tamaño de los botones */
+    height: 50px;
+    /* Aumentar el tamaño de los botones */
+    font-size: 16px;
+    /* Aumentar el tamaño del texto */
+    margin: 3px;
+    color: #fff;
+    /* Texto blanco */
+}
+
+/* Ajustar el tamaño de los botones F */
+#f1,
+#f2,
+#f3,
+#f4 {
+    background-color: #FFA500;
+    /* Fondo naranja suave */
+    color: #fff;
+    /* Texto blanco */
+    width: 50px;
+    /* Ajustar el tamaño de los botones F */
+    height: 30px;
+    /* Ajustar el tamaño de los botones F */
+    font-size: 12px;
+    /* Ajustar el tamaño del texto en los botones F */
+}
+
+.number {
+    background-color: #008000;
+    /* Fondo verde */
+    color: #FFFF00;
+    /* Texto amarillo */
+}
+
+#start {
+    background-color: #FF0000;
+    /* Fondo rojo */
+    color: #000;
+    /* Texto negro */
+}
+
+#stop {
+    background-color: #FF0000;
+    /* Fondo rojo */
+    color: #000;
+    /* Texto negro */
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.control-buttons .empezar,
+.control-buttons .parar {
+    font-size: 14px;
+}
+
+.control-buttons .number {
+    font-size: 16px;
+}
+
+.side-panel {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    /* Añadir espacio entre main-panel y side-panel */
+}
+
+.info-box {
+    border: 1px solid #07d3f3;
+    padding: 10px;
+    width: 100%;
+    max-width: 250px;
+    height: auto;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+}
+
+.player-title {
+    font-weight: bold;
+    font-size: 1em;
+}
+
+#mark-button-j1,
+#mark-button-j2,
+#mark-button-j3,
+#mark-button-j4,
+#mark-button-j5,
+#mark-button-j6 {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    font-size: 10px;
+}
+
+footer {
+    text-align: center;
+    padding: 20px;
+    background-color: #272727;
+    /* Fondo negro */
+    color: #fff;
+    /* Texto blanco */
+    position: relative;
+    ;
+    bottom: 0;
+    width: 100%;
+}
+
+footer strong {
+    color: #FFA500;
+    /* Color naranja para resaltar nombres */
+}
+
+footer a {
+    color: #007bff;
+    /* Color de los enlaces */
+    text-decoration: none;
+}
+
+footer a:hover {
+    text-decoration: underline;
+}
+
+/* Media query para tabletas (pantallas de hasta 768px de ancho) */
+@media (max-width: 768px) {
+    .display {
+        font-size: 1.5em;
+    }
+
+    .button-label {
+        font-size: 10px;
+    }
+
+    .row button,
+    .control-buttons button {
+        width: 60px;
+        height: 45px;
+        font-size: 14px;
+    }
+
+    .info-box {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .player-title {
+        font-size: 0.9em;
+    }
+
+    #mark-button-j1,
+    #mark-button-j2,
+    #mark-button-j3,
+    #mark-button-j4,
+    #mark-button-j5,
+    #mark-button-j6 {
+        width: 15px;
+        height: 15px;
+        font-size: 8px;
+    }
+}
+
+/* Media query para teléfonos móviles (pantallas de hasta 480px de ancho) */
+@media (max-width: 480px) {
+    .display {
+        font-size: 1.2em;
+    }
+
+    .button-label {
+        font-size: 12px;
+    }
+
+    .row button,
+    .control-buttons button {
+        width: 50px;
+        height: 40px;
+        font-size: 12px;
+    }
+
+    .info-box {
+        width: 100%;
+        padding: 5px;
+    }
+
+    .player-title {
+        font-size: 0.8em;
+    }
+
+    #mark-button-j1,
+    #mark-button-j2,
+    #mark-button-j3,
+    #mark-button-j4,
+    #mark-button-j5,
+    #mark-button-j6 {
+        width: 10px;
+        height: 10px;
+        font-size: 6px;
+    }
+}

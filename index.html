@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina Virtual de Seguros</title>
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-panel">
+            <div class="display" id="display">SYSTEMA LISTO ! TOCAR <br> * EMPEZAR *</div>
+            <div class="buttons">
+                <div class="row1">
+                    <div>
+                        <div class="button-label">ACEPTAR</div>
+                        <button id="f1">F1</button>
+                    </div>
+                    <div>
+                        <div class="button-label">VENDER</div>
+                        <button id="f2">F2</button>
+                    </div>
+                    <div>
+                        <div class="button-label">REEMBOLSAR</div>
+                        <button id="f3">F3</button>
+                    </div>
+                    <div>
+                        <div class="button-label">SALIR</div>
+                        <button id="f4">F4</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <button class="number" data-value="1">1</button>
+                    <button class="number" data-value="2">2</button>
+                    <button class="number" data-value="3">3</button>
+                </div>
+                <div class="row">
+                    <button class="number" data-value="4">4</button>
+                    <button class="number" data-value="5">5</button>
+                    <button class="number" data-value="6">6</button>
+                </div>
+                <div class="row">
+                    <button class="number" data-value="7">7</button>
+                    <button class="number" data-value="8">8</button>
+                    <button class="number" data-value="9">9</button>
+                </div>
+            </div>
+            <div class="control-buttons">
+                <div>
+                    <button id="start" class="empezar"></button>
+                    <div class="button-label">EMPEZAR</div>
+                </div>
+                <div>
+                    <button class="number" data-value="0">0</button>
+                </div>
+                <div>
+                    <button id="stop" class="parar"></button>
+                    <div class="button-label">PARAR</div>
+                </div>
+            </div>
+        </div>
+        <div class="side-panel">
+            <div class="info-box">
+                <div class="player-title">1</div>
+                <div id="total-seguros-j1">Creditos: 0</div>
+                <div id="current-count-j1">Jugador: 0</div>
+                <button id="mark-button-j1"></button>
+            </div>
+            <div class="info-box">
+                <div class="player-title">2</div>
+                <div id="total-seguros-j2">Creditos: 0</div>
+                <div id="current-count-j2">Jugador: 0</div>
+                <button id="mark-button-j2"></button>
+            </div>
+            <div class="info-box">
+                <div class="player-title">3</div>
+                <div id="total-seguros-j3">Creditos: 0</div>
+                <div id="current-count-j3">Jugador: 0</div>
+                <button id="mark-button-j3"></button>
+            </div>
+        </div>
+        <button class="credits-button"
+            onclick="document.getElementById('modal').classList.add('show')">Créditos</button>
+    </div>
+    <footer>
+        <p>Desarrollado por <strong>MuRtDev</strong></p>
+        <p>&copy; 2024 Todos los derechos reservados.</p>
+    </footer>
+
+    <!-- Ventana Modal -->
+    <div id="modal" class="modal">
+        <div class="modal-content">
+            <h2>Créditos</h2>
+            <p>Esta aplicación fue construida con fines didácticos.</p>
+            <p>Desarrollada por Mauricio Navea L.</p>
+            <p>Correo de contacto: <a href="mailto:navea.dev@gmail.com">navea.dev@gmail.com</a></p>
+            <p>&copy; 2024 Todos los derechos reservados. La aplicación se proporciona "tal cual" y no garantiza ningún
+                derecho o responsabilidad por su uso.</p>
+            <p>Para más información sobre derechos de autor y propiedad intelectual, consulte <a
+                    href="https://www.wipo.int/about-ip/en/">la Oficina Mundial de Propiedad Intelectual</a>.</p>
+            <button onclick="document.getElementById('modal').classList.remove('show')">Cerrar</button>
+        </div>
+    </div>
+    <script src="main.js"></script>
+</body>
+
+</html>

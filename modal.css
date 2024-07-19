@@ -1,0 +1,76 @@
+/* Estilos para la ventana modal */
+.modal {
+    display: none;
+    /* Oculto por defecto */
+    position: fixed;
+    z-index: 1;
+    /* Asegura que el modal esté en frente de otros elementos */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    /* Permite hacer scroll si es necesario */
+    background-color: rgba(0, 0, 0, 0.5);
+    /* Fondo semitransparente */
+}
+
+.modal-content {
+    background-color: #000;
+    /* Fondo negro */
+    color: #fff;
+    /* Texto blanco */
+    margin: 15% auto;
+    /* Centra el modal */
+    padding: 20px;
+    border: 1px solid #888;
+    width: 80%;
+    /* Tamaño del modal */
+    max-width: 600px;
+    border-radius: 10px;
+}
+
+.modal-content h2 {
+    margin-top: 0;
+}
+
+.modal-content p {
+    margin: 10px 0;
+}
+
+.modal-content a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.modal-content a:hover {
+    text-decoration: underline;
+}
+
+.show {
+    display: block;
+}
+
+/* Media query para tabletas (pantallas de hasta 768px de ancho) */
+@media (max-width: 768px) {
+    .modal-content {
+        width: 90%;
+        /* Aumenta el ancho del modal */
+        padding: 15px;
+        /* Reduce el padding */
+        font-size: 0.9em;
+        /* Reduce el tamaño de la fuente */
+    }
+}
+
+/* Media query para teléfonos móviles (pantallas de hasta 480px de ancho) */
+@media (max-width: 480px) {
+    .modal-content {
+        width: 95%;
+        /* Aumenta aún más el ancho del modal */
+        padding: 10px;
+        /* Reduce aún más el padding */
+        font-size: 0.8em;
+        /* Reduce aún más el tamaño de la fuente */
+    }
+}

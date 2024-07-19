@@ -44,8 +44,8 @@ Este proyecto es una aplicación web de gestión de operaciones construida con H
 ## Estructura de Archivos
 
 - `index.html`: Contiene la estructura HTML de la aplicación.
-- `styles3.css`: Incluye el estilo para la interfaz y la ventana modal.
-- `main2.js`: Contiene la lógica JavaScript para la interacción y funcionalidad de la aplicación.
+- `styles.css`: Incluye el estilo para la interfaz y la ventana modal.
+- `main.js`: Contiene la lógica JavaScript para la interacción y funcionalidad de la aplicación.
 
 ## Cómo Usar
 

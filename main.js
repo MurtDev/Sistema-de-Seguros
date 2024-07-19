@@ -118,14 +118,19 @@ function createClickListener(index) {
             const creditsElement = document.getElementById(`total-seguros-j${index}`);
             let credits = parseInt(creditsElement.innerText.replace('Creditos: ', ''), 10);
 
-            if (credits > 0 && currentCount[index - 1] < 5 && currentCount[index - 1] < credits) {
+            if (credits > 0 && currentCount[index - 1] < 6 && currentCount[index - 1] < credits) {
                 currentCount[index - 1]++;
+
+                // Reiniciar el contador a 0 si llega a 5
+                if (currentCount[index - 1] >= 6) {
+                    currentCount[index - 1] = 0;
+                }
+
                 currentCountDisplays[index - 1].innerText = `Jugador: ${currentCount[index - 1]}`;
             }
         }
     };
 }
-
 
 // Función para reiniciar las variables y la interfaz
 function reset() {

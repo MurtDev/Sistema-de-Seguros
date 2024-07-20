@@ -40,10 +40,10 @@ document.getElementById('f1').addEventListener('click', function () {
         if (f1PressCount === 2) {
             if (currentOperation === 'sell') {
                 totalSeguros[selectedPosition - 1] += quantity;
-                display.innerText = `CONF. JUG. # ${selectedPosition}\n $${totalValue}.`;
+                display.innerText = `CONF. JUG. # ${selectedPosition}\n $${totalValue}`;
             } else if (currentOperation === 'return') {
                 totalSeguros[selectedPosition - 1] -= quantity;
-                display.innerText = `REEMB. JUG. # ${selectedPosition}\n $${totalValue}.`;
+                display.innerText = `REEMB. JUG. # ${selectedPosition}\n $${totalValue}`;
             }
             totalSegurosDisplays[selectedPosition - 1].innerText = `Creditos: ${totalSeguros[selectedPosition - 1]}`;
             setTimeout(() => {
@@ -51,7 +51,7 @@ document.getElementById('f1').addEventListener('click', function () {
                 reset();
             }, 2000);
         } else {
-            display.innerText = `${currentOperation === 'sell' ? 'CONF.' : 'REEMB.'} JUG. # ${selectedPosition} \n$${totalValue}.`;
+            display.innerText = `${currentOperation === 'sell' ? 'CONF.' : 'REEMB.'} JUG. # ${selectedPosition} \n$${totalValue}`;
         }
     }
 });

@@ -132,6 +132,7 @@ function createClickListener(index) {
     };
 }
 
+
 // Función para reiniciar las variables y la interfaz
 function reset() {
     currentOperation = '';

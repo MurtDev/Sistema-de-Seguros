@@ -77,7 +77,7 @@ document.getElementById('f3').addEventListener('click', function () {
 // Evento para el botón F4 (Salir)
 document.getElementById('f4').addEventListener('click', function () {
     if (systemLocked) {
-        display.innerText = 'PRESIONE F4 PARA \n VOLVER ATRAS';
+        display.innerText = 'PRESIONE F4 PARA \n VOLVER';
         systemLocked = false; // Desbloquear el sistema
     } else {
         display.innerText = 'SYSTEMA LISTO !\n TOCAR * EMPEZAR *';
@@ -166,7 +166,7 @@ document.getElementById('start').addEventListener('click', function () {
 // Evento para el botón de parar
 document.getElementById('stop').addEventListener('click', function () {
     if (systemLocked) {
-        display.innerText = 'PRESIONE F4 PARA \n VOLVER ATRAS';
+        display.innerText = 'PRESIONE F4 PARA \n VOLVER';
         systemLocked = false; // Desbloquear el sistema
     } else {
         display.innerText = 'SYSTEMA LISTO !\n TOCAR * EMPEZAR *';

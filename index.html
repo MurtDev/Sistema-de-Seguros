@@ -12,7 +12,7 @@
 <body>
     <div class="container">
         <div class="main-panel">
-            <div class="display" id="display">SYSTEMA LISTO ! TOCAR <br> * EMPEZAR *</div>
+            <div class="display" id="display">SYSTEMA LISTO !<br> TOCAR * EMPEZAR *</div>
             <div class="buttons">
                 <div class="row1">
                     <div>
@@ -63,46 +63,124 @@
             </div>
         </div>
         <div class="side-panel">
-            <div class="info-box">
-                <div class="player-title">1</div>
-                <div id="total-seguros-j1">Creditos: 0</div>
-                <div id="current-count-j1">Jugador: 0</div>
-                <button id="mark-button-j1"></button>
+            <div class="info-column">
+                <div class="info-box">
+                    <div class="player-title">1</div>
+                    <div id="total-seguros-j1">CREDITOS: 0</div>
+                    <div class="current-and-mark">
+                        <div id="current-count-j1">JUGADOR: 0</div>
+                        <button id="mark-button-j1"></button>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <div class="player-title">3</div>
+                    <div id="total-seguros-j3">CREDITOS: 0</div>
+                    <div class="current-and-mark">
+                        <div id="current-count-j3">JUGADOR: 0</div>
+                        <button id="mark-button-j3"></button>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <div class="player-title">5</div>
+                    <div id="total-seguros-j5">CREDITOS: 0</div>
+                    <div class="current-and-mark">
+                        <div id="current-count-j5">JUGADOR: 0</div>
+                        <button id="mark-button-j5"></button>
+                    </div>
+                </div>
             </div>
-            <div class="info-box">
-                <div class="player-title">2</div>
-                <div id="total-seguros-j2">Creditos: 0</div>
-                <div id="current-count-j2">Jugador: 0</div>
-                <button id="mark-button-j2"></button>
-            </div>
-            <div class="info-box">
-                <div class="player-title">3</div>
-                <div id="total-seguros-j3">Creditos: 0</div>
-                <div id="current-count-j3">Jugador: 0</div>
-                <button id="mark-button-j3"></button>
+            <div class="info-column">
+                <div class="info-box">
+                    <div class="player-title">2</div>
+                    <div id="total-seguros-j2">CREDITOS: 0</div>
+                    <div class="current-and-mark">
+                        <div id="current-count-j2">JUGADOR: 0</div>
+                        <button id="mark-button-j2"></button>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <div class="player-title">4</div>
+                    <div id="total-seguros-j4">CREDITOS: 0</div>
+                    <div class="current-and-mark">
+                        <div id="current-count-j4">JUGADOR: 0</div>
+                        <button id="mark-button-j4"></button>
+                    </div>
+                </div>
+                <div class="info-box">
+                    <div class="player-title">6</div>
+                    <div id="total-seguros-j6">CREDITOS: 0</div>
+                    <div class="current-and-mark">
+                        <div id="current-count-j6">JUGADOR: 0</div>
+                        <button id="mark-button-j6"></button>
+                    </div>
+                </div>
             </div>
         </div>
-        <button class="credits-button"
-            onclick="document.getElementById('modal').classList.add('show')">Créditos</button>
+
+        <div class="btn">
+            <button class="credits-button" onclick="document.getElementById('modal').classList.add('show')">Acerca
+                de</button>
+            <button class="credits-button"
+                onclick="document.getElementById('modal1').classList.add('show')">Instrucciones</button>
+        </div>
     </div>
     <footer>
-        <p>Desarrollado por <strong>MuRtDev</strong> </p>
-        <p>Version 1.1</p>
+        <p>Desarrollado por <strong>Mauricio Navea L.</strong></p>
+        <p>version 1.3</p>
         <p>&copy; 2024 Todos los derechos reservados.</p>
     </footer>
+
 
     <!-- Ventana Modal -->
     <div id="modal" class="modal">
         <div class="modal-content">
-            <h2>Créditos</h2>
-            <p>Esta aplicación fue construida con fines didácticos.</p>
-            <p>Desarrollada por Mauricio Navea L.</p>
+            <h2>Información</h2>
+            <p>Esta aplicación web fue desarrollada con fines didácticos y educativos, específicamente para estudiantes
+                en capacitación de póker. Su objetivo es servir como una herramienta práctica y una simulación para
+                que los estudiantes aprendan a usar una máquina de seguros en un entorno controlado.</p>
+            <p>El proyecto está diseñado para ayudar a los usuarios a familiarizarse con el proceso de venta y reembolso
+                de seguros, proporcionando un entorno interactivo donde pueden practicar y perfeccionar sus habilidades.
+            </p>
+            <p>Desarrollada por Mauricio Navea L., esta aplicación busca apoyar a los estudiantes en su proceso de
+                aprendizaje y formación.</p>
             <p>Correo de contacto: <a href="mailto:navea.dev@gmail.com">navea.dev@gmail.com</a></p>
-            <p>&copy; 2024 Todos los derechos reservados. La aplicación se proporciona "tal cual" y no garantiza ningún
-                derecho o responsabilidad por su uso.</p>
-            <p>Para más información sobre derechos de autor y propiedad intelectual, consulte <a
-                    href="https://www.wipo.int/about-ip/en/">la Oficina Mundial de Propiedad Intelectual</a>.</p>
+            <p>GitHub: <a href="https://github.com/MurtDev" target="_blank">github.com/MurtDev</a></p>
+            <p>&copy; 2024 Todos los derechos reservados.</p>
+            <br>
             <button onclick="document.getElementById('modal').classList.remove('show')">Cerrar</button>
+        </div>
+    </div>
+    <!-- Ventana Modal -->
+    <div id="modal1" class="modal">
+        <div class="modal-content">
+            <h2>Instrucciones del Juego</h2>
+            <p>Cada seguro cuesta <strong>$500</strong>. El jugador puede usar un máximo de <strong>5 seguros</strong>
+                por pase.</p>
+            <p>Para vender seguros:</p>
+            <ul>
+                <li>Presiona <strong>F2</strong> una vez.</li>
+                <li>Selecciona el puesto del jugador (del <strong>1</strong> al <strong>6</strong>).</li>
+                <li>Ingresa la cantidad de seguros a vender.</li>
+                <li>Confirma presionando <strong>F1</strong> dos veces.</li>
+            </ul>
+            <p>Para reembolsar seguros:</p>
+            <ul>
+                <li>Presiona <strong>F3</strong> una vez.</li>
+                <li>Selecciona el puesto del jugador (del <strong>1</strong> al <strong>6</strong>).</li>
+                <li>Ingresa la cantidad de seguros a reembolsar.</li>
+                <li>Confirma presionando <strong>F1</strong> dos veces.</li>
+            </ul>
+            <p>Para comenzar el juego:</p>
+            <ul>
+                <li>Presiona el botón de <strong>EMPEZAR</strong>.</li>
+            </ul>
+            <p>Para terminar el juego:</p>
+            <ul>
+                <li>Presiona el botón de <strong>PARAR</strong> dos veces.</li>
+            </ul>
+
+            <br>
+            <button onclick="document.getElementById('modal1').classList.remove('show')">Cerrar</button>
         </div>
     </div>
     <script src="main.js"></script>

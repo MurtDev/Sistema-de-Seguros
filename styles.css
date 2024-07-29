@@ -151,23 +151,28 @@ body {
 
 .side-panel {
     display: flex;
-    flex-direction: column;
-    align-items: center;
+    justify-content: space-between;
     width: 100%;
     max-width: 100%;
     margin-top: 20px;
     /* Añadir espacio entre main-panel y side-panel */
 }
 
+.info-column {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    /* Ajustar para que quepan dos columnas con espacio entre ellas */
+    gap: 10px;
+}
+
 .info-box {
     border: 1px solid #07d3f3;
     padding: 10px;
-    width: 100%;
-    max-width: 250px;
     height: auto;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: flex-start;
     gap: 10px;
     margin-bottom: 10px;
     border-radius: 5px;
@@ -176,6 +181,13 @@ body {
 .player-title {
     font-weight: bold;
     font-size: 1em;
+}
+
+.current-and-mark {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    width: 100%;
 }
 
 #mark-button-j1,
@@ -188,6 +200,14 @@ body {
     height: 30px;
     border-radius: 50%;
     font-size: 10px;
+}
+
+
+.btn {
+    display: flex;
+    gap: 50px;
+    align-items: center;
+
 }
 
 footer {

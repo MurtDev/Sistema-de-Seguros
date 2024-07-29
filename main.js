@@ -54,8 +54,14 @@ const handleOperation = (operation, position, quantity) => {
 
 // Evento para el botón F1 (Aceptar)
 document.getElementById('f1').addEventListener('click', () => {
-    if (!systemLocked && (currentOperation === 'sell' || currentOperation === 'return') && stage === 2) {
+    if (!systemLocked && (currentOperation === 'sell' || currentOperation === 'return') && stage === 2 && selectedPosition) {
         const quantity = parseInt(selectedQuantity, 10);
+
+        // Verificar si no se ha ingresado una cantidad válida
+        if (isNaN(quantity)) {
+            return; // No hacer nada si la cantidad es NaN
+        }
+
         if (quantity < 1) {
             updateDisplay('VALOR MUY BAJO \n MIN: 1');
             return;
@@ -115,9 +121,12 @@ numberButtons.forEach(button => {
     button.addEventListener('click', () => {
         if (!systemLocked) {
             if (stage === 1) {
-                selectedPosition = parseInt(button.innerText, 10);
-                updateDisplay(`JU# ${selectedPosition} ${currentOperation === 'sell' ? 'COMPRA' : 'REEMBOLSO'} \n0`);
-                stage = 2;
+                const number = parseInt(button.innerText, 10);
+                if (number >= 1 && number <= 6) {
+                    selectedPosition = number;
+                    updateDisplay(`JU# ${selectedPosition} ${currentOperation === 'sell' ? 'COMPRA' : 'REEMBOLSO'} \n0`);
+                    stage = 2;
+                }
             } else if (stage === 2) {
                 selectedQuantity += button.innerText;
                 updateDisplay(`JU# ${selectedPosition} ${currentOperation === 'sell' ? 'COMPRA' : 'REEMBOLSO'}\n ${selectedQuantity}`);
@@ -130,15 +139,16 @@ numberButtons.forEach(button => {
 function createClickListener(index) {
     return function () {
         if (!systemLocked) {
-            // Verificar si hay créditos disponibles antes de incrementar el contador
+            // Obtener el elemento de créditos y su valor actual
             const creditsElement = document.getElementById(`total-seguros-j${index}`);
             let credits = parseInt(creditsElement.innerText.replace('CREDITOS: ', ''), 10);
 
-            if (credits > 0 && currentCount[index - 1] < 6) {
+            // Verificar si hay créditos disponibles
+            if (credits > 0) {
                 currentCount[index - 1]++;
 
-                // Reiniciar el contador a 0 si llega a 5
-                if (currentCount[index - 1] === 6) {
+                // Reiniciar el contador a 0 si llega a 6 o si alcanza el número de créditos disponibles
+                if (currentCount[index - 1] === 6 || currentCount[index - 1] > credits) {
                     currentCount[index - 1] = 0;
                 }
 

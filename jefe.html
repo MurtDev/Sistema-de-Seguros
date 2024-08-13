@@ -1,0 +1,233 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina Virtual de Seguros</title>
+    <link rel="stylesheet" href="estilo.css">
+    <link rel="stylesheet" href="modal.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="main-panel">
+            <div class="display" id="display">SYSTEMA LISTO !<br> TOCAR * EMPEZAR *</div>
+            <div class="buttons">
+                <div class="row1">
+                    <div>
+                        <div class="button-label">ACEPTAR</div>
+                        <button id="f1">F1</button>
+                    </div>
+                    <div>
+                        <div class="button-label">VENDER</div>
+                        <button id="f2">F2</button>
+                    </div>
+                    <div>
+                        <div class="button-label">REEMBOLSAR</div>
+                        <button id="f3">F3</button>
+                    </div>
+                    <div>
+                        <div class="button-label">SALIR</div>
+                        <button id="f4">F4</button>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="button-container">
+                        <button class="number" data-value="1">1</button>
+                        <div class="button-label" id="letras">ESCALERA</div>
+                        <div class="button-label" id="letras">REAL</div>
+                    </div>
+                    <div class="button-container">
+                        <button class="number" data-value="2">2</button>
+                        <div class="button-label" id="letras">ESCALERA</div>
+                        <div class="button-label" id="letras">COLOR</div>
+                    </div>
+                    <div class="button-container">
+                        <button class="number" data-value="3">3</button>
+                        <div class="button-label" id="letras">POKER</div>
+                        <div class="button-label" id="nover">poker</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="button-container">
+                        <button class="number" data-value="4">4</button>
+                        <div class="button-label" id="letras">FULL</div>
+                        <div class="button-label" id="nover">poker</div>
+                    </div>
+                    <div class="button-container">
+                        <button class="number" data-value="5">5</button>
+                        <div class="button-label" id="letras">COLOR</div>
+                        <div class="button-label" id="nover">poker</div>
+                    </div>
+                    <div class="button-container">
+                        <button class="number" data-value="6">6</button>
+                        <div class="button-label" id="letras">ESCALERA</div>
+                        <div class="button-label" id="letras">SENCILLA</div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="button-container">
+                        <button class="number" data-value="7">7</button>
+                        <div class="button-label" id="letras">CARTA</div>
+                        <div class="button-label" id="letras">MAGICA</div>
+                    </div>
+                    <div class="button-container">
+                        <button class="number" data-value="8">8</button>
+                        <div class="button-label" id="letras">JUGADOR</div>
+                        <div class="button-label" id="letras">AFORTUNADO</div>
+                    </div>
+                    <div class="button-container">
+                        <button class="number" data-value="9">9</button>
+                        <div class="button-label" id="nover">0000</div>
+                        <div class="button-label" id="nover">poker</div>
+                    </div>
+                </div>
+                <div class="control-buttons">
+                    <div>
+                        <button id="start" class="empezar"></button>
+                        <div class="button-label">EMPEZAR</div>
+                    </div>
+                    <div>
+                        <button class="number" data-value="0">0</button>
+                    </div>
+                    <div>
+                        <button id="stop" class="parar"></button>
+                        <div class="button-label">PARAR</div>
+                    </div>
+                </div>
+            </div>
+            <div class="control-buttons">
+                <div>
+                    <button id="tarjeta-jefe">TARJETA JEFE</button>
+                </div>
+            </div>
+            <div class="side-panel">
+                <div class="info-column">
+                    <div class="info-box">
+                        <div class="player-title">1</div>
+                        <div id="total-seguros-j1">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j1">JUGADOR: 0</div>
+                            <button id="mark-button-j1"></button>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="player-title">3</div>
+                        <div id="total-seguros-j3">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j3">JUGADOR: 0</div>
+                            <button id="mark-button-j3"></button>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="player-title">5</div>
+                        <div id="total-seguros-j5">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j5">JUGADOR: 0</div>
+                            <button id="mark-button-j5"></button>
+                        </div>
+                    </div>
+                </div>
+                <div class="info-column">
+                    <div class="info-box">
+                        <div class="player-title">2</div>
+                        <div id="total-seguros-j2">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j2">JUGADOR: 0</div>
+                            <button id="mark-button-j2"></button>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="player-title">4</div>
+                        <div id="total-seguros-j4">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j4">JUGADOR: 0</div>
+                            <button id="mark-button-j4"></button>
+                        </div>
+                    </div>
+                    <div class="info-box">
+                        <div class="player-title">6</div>
+                        <div id="total-seguros-j6">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j6">JUGADOR: 0</div>
+                            <button id="mark-button-j6"></button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="btn">
+                <button class="credits-button" onclick="document.getElementById('modal').classList.add('show')">Acerca
+                    de</button>
+                <button class="credits-button"
+                    onclick="document.getElementById('modal1').classList.add('show')">Instrucciones</button>
+            </div>
+        </div>
+        <footer>
+            <p>Desarrollado por <strong>Mauricio Navea L.</strong></p>
+            <p>version 1.3</p>
+            <p>&copy; 2024 Todos los derechos reservados.</p>
+        </footer>
+
+
+        <!-- Ventana Modal -->
+        <div id="modal" class="modal">
+            <div class="modal-content">
+                <h2>Información</h2>
+                <p>Esta aplicación web fue desarrollada con fines didácticos y educativos, específicamente para
+                    estudiantes
+                    en capacitación de póker. Su objetivo es servir como una herramienta práctica y una simulación para
+                    que los estudiantes aprendan a usar una máquina de seguros en un entorno controlado.</p>
+                <p>El proyecto está diseñado para ayudar a los usuarios a familiarizarse con el proceso de venta y
+                    reembolso
+                    de seguros, proporcionando un entorno interactivo donde pueden practicar y perfeccionar sus
+                    habilidades.
+                </p>
+                <p>Desarrollada por Mauricio Navea L., esta aplicación busca apoyar a los estudiantes en su proceso de
+                    aprendizaje y formación.</p>
+                <p>Correo de contacto: <a href="mailto:navea.dev@gmail.com">navea.dev@gmail.com</a></p>
+                <p>GitHub: <a href="https://github.com/MurtDev" target="_blank">github.com/MurtDev</a></p>
+                <p>&copy; 2024 Todos los derechos reservados.</p>
+                <br>
+                <button onclick="document.getElementById('modal').classList.remove('show')">Cerrar</button>
+            </div>
+        </div>
+        <!-- Ventana Modal -->
+        <div id="modal1" class="modal">
+            <div class="modal-content">
+                <h2>Instrucciones del Juego</h2>
+                <p>Cada seguro cuesta <strong>$500</strong>. El jugador puede usar un máximo de <strong>5
+                        seguros</strong>
+                    por pase.</p>
+                <p>Para vender seguros:</p>
+                <ul>
+                    <li>Presiona <strong>F2</strong> una vez.</li>
+                    <li>Selecciona el puesto del jugador (del <strong>1</strong> al <strong>6</strong>).</li>
+                    <li>Ingresa la cantidad de seguros a vender.</li>
+                    <li>Confirma presionando <strong>F1</strong> dos veces.</li>
+                </ul>
+                <p>Para reembolsar seguros:</p>
+                <ul>
+                    <li>Presiona <strong>F3</strong> una vez.</li>
+                    <li>Selecciona el puesto del jugador (del <strong>1</strong> al <strong>6</strong>).</li>
+                    <li>Ingresa la cantidad de seguros a reembolsar.</li>
+                    <li>Confirma presionando <strong>F1</strong> dos veces.</li>
+                </ul>
+                <p>Para comenzar el juego:</p>
+                <ul>
+                    <li>Presiona el botón de <strong>EMPEZAR</strong>.</li>
+                </ul>
+                <p>Para terminar el juego:</p>
+                <ul>
+                    <li>Presiona el botón de <strong>PARAR</strong> dos veces.</li>
+                </ul>
+
+                <br>
+                <button onclick="document.getElementById('modal1').classList.remove('show')">Cerrar</button>
+            </div>
+        </div>
+        <script src="main2.js"></script>
+</body>
+
+</html>

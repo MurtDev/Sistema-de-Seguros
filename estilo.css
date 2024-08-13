@@ -1,0 +1,379 @@
+/* Estilos generales */
+body {
+    font-family: Arial, sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    /* Fondo gris suave */
+    color: #fff;
+    /* Texto blanco por defecto */
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #272727;
+    /* Fondo negro */
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+}
+
+.main-panel {
+    text-align: center;
+    margin-bottom: 20px;
+    width: 100%;
+}
+
+.display {
+    border: 3px solid #daf206;
+    margin: 0 auto 20px auto;
+    padding: 10px;
+    margin-bottom: 20px;
+    width: 90%;
+    max-width: 320px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1.2em;
+    background-color: #2def37;
+    color: #000;
+    border-radius: 5px;
+}
+
+.buttons {
+    margin-bottom: 20px;
+}
+
+.row {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 10px;
+}
+
+.row1 {
+    display: flex;
+    justify-content: center;
+    gap: 25px;
+    padding: 10px;
+    padding-bottom: 30px;
+}
+
+.title-row {
+    text-align: center;
+    margin: 10px 0;
+}
+
+.button-label {
+    margin-top: 5px;
+    font-size: 0.9em;
+    color: #fff;
+    text-align: center;
+}
+
+.button-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin-bottom: 10px;
+    height: 100px;
+    /* Ajusta la altura según sea necesario */
+    justify-content: space-between;
+    /* Distribuye el espacio entre los elementos */
+}
+
+.button-container button {
+    width: 70px;
+    /* Ajusta el ancho según sea necesario */
+    height: 50px;
+    /* Ajusta la altura según sea necesario */
+    font-size: 16px;
+    /* Ajusta el tamaño del texto según sea necesario */
+}
+
+.button-container .button-label {
+    font-size: 0.9em;
+    /* Ajusta el tamaño del texto según sea necesario */
+    color: #fff;
+    /* Color del texto */
+    text-align: center;
+}
+
+#nover {
+    opacity: 0;
+    /* Hace que el elemento sea transparente */
+}
+
+.row>div,
+.control-buttons>div {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.row button,
+.control-buttons button {
+    width: 70px;
+    /* Aumentar el tamaño de los botones */
+    height: 50px;
+    /* Aumentar el tamaño de los botones */
+    font-size: 16px;
+    /* Aumentar el tamaño del texto */
+    margin: 3px;
+    color: #fff;
+    /* Texto blanco */
+}
+
+#letras {
+    font-size: 0.7em;
+    /* Ajusta el tamaño de la fuente según sea necesario */
+}
+
+/* Ajustar el tamaño de los botones F */
+#f1,
+#f2,
+#f3,
+#f4 {
+    background-color: #FFA500;
+    /* Fondo naranja suave */
+    color: #fff;
+    /* Texto blanco */
+    width: 50px;
+    /* Ajustar el tamaño de los botones F */
+    height: 30px;
+    /* Ajustar el tamaño de los botones F */
+    font-size: 12px;
+    /* Ajustar el tamaño del texto en los botones F */
+}
+
+.number {
+    background-color: #008000;
+    /* Fondo verde */
+    color: #FFFF00;
+    /* Texto amarillo */
+    display: block;
+    margin: 0 auto;
+    /* Centrar horizontalmente */
+}
+
+#start {
+    background-color: #FF0000;
+    /* Fondo rojo */
+    color: #000;
+    /* Texto negro */
+}
+
+#stop {
+    background-color: #FF0000;
+    /* Fondo rojo */
+    color: #000;
+    /* Texto negro */
+}
+
+.control-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 10px;
+}
+
+.control-buttons .empezar,
+.control-buttons .parar {
+    font-size: 14px;
+}
+
+.control-buttons .number {
+    font-size: 16px;
+}
+
+.side-panel {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 100%;
+    margin-top: 20px;
+    /* Añadir espacio entre main-panel y side-panel */
+}
+
+.info-column {
+    display: flex;
+    flex-direction: column;
+    width: 48%;
+    /* Ajustar para que quepan dos columnas con espacio entre ellas */
+    gap: 10px;
+}
+
+.info-box {
+    border: 1px solid #07d3f3;
+    padding: 10px;
+    height: 100px;
+    /* Ajustar según sea necesario */
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    /* Distribuir espacio entre elementos */
+    background-color: #0e0e0e;
+    /* Fondo oscuro para las cajas de información */
+}
+
+.player-title {
+    font-size: 1.2em;
+    color: #daf206;
+}
+
+.current-and-mark {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+#mark-button-j1,
+#mark-button-j2,
+#mark-button-j3,
+#mark-button-j4,
+#mark-button-j5,
+#mark-button-j6 {
+    background-color: #FFA500;
+    /* Fondo naranja suave */
+    color: #fff;
+    /* Texto blanco */
+    width: 50px;
+    /* Ajustar el tamaño de los botones */
+    height: 30px;
+    /* Ajustar el tamaño de los botones */
+    font-size: 12px;
+    /* Ajustar el tamaño del texto */
+    border-radius: 5px;
+}
+
+/* Estilos para los botones de "Acerca de" e "Instrucciones" */
+.btn {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    max-width: 320px;
+    margin: 25px;
+}
+
+.credits-button {
+    background-color: #007bff;
+    /* Fondo azul */
+    color: #fff;
+    /* Texto blanco */
+    border: none;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 0.9em;
+    cursor: pointer;
+}
+
+.credits-button:hover {
+    background-color: #0056b3;
+    /* Fondo azul más oscuro al pasar el ratón */
+}
+
+/* Estilos para el pie de página */
+footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #f8f5f5;
+    /* Texto gris */
+    font-size: 0.8em;
+}
+
+/* Estilos para las ventanas modales */
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto;
+    background-color: rgba(0, 0, 0, 0.4);
+    /* Fondo negro con opacidad */
+}
+
+.modal-content {
+    background-color: #272727;
+    /* Fondo negro */
+    margin: 10% auto;
+    padding: 20px;
+    border: 1px solid #07d3f3;
+    width: 80%;
+    max-width: 600px;
+    color: #fff;
+    border-radius: 10px;
+}
+
+.show {
+    display: block;
+    /* Mostrar la ventana modal */
+}
+
+#tarjeta-jefe {
+    width: 100px;
+    background-color: #FFA500;
+    /* Fondo naranja */
+    color: #fff;
+    /* Texto blanco */
+    border: none;
+    padding: 10px 20px;
+    /* Ajusta el padding según sea necesario */
+    border-radius: 5px;
+    font-size: 1em;
+    /* Ajusta el tamaño del texto según sea necesario */
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    /* Centrar verticalmente */
+    justify-content: center;
+    /* Centrar horizontalmente */
+    margin: 10px auto;
+    /* Centrar horizontalmente */
+    text-align: center;
+    /* Asegura que el texto esté centrado */
+}
+
+#tarjeta-jefe:hover {
+    background-color: #cc8400;
+    /* Fondo naranja más oscuro al pasar el ratón */
+}
+
+/* Clase para resaltar los números activos */
+.active-number {
+    animation: glow 1s infinite alternate;
+    background-color: lightgreen;
+    /* Cambiar el color de fondo si es necesario */
+}
+
+/* Clase para resaltar el número seleccionado */
+.selected-number {
+    border: 2px solid gold;
+    animation: none;
+    /* Detiene el parpadeo cuando se selecciona */
+}
+
+/* Clase para resaltar la opción de premio seleccionada */
+.selected-prize {
+    background-color: yellow;
+    border: 2px solid red;
+}
+
+@keyframes glow {
+    from {
+        box-shadow: 0 0 10px rgba(0, 255, 0, 0.5);
+    }
+
+    to {
+        box-shadow: 0 0 20px rgba(0, 255, 0, 1);
+    }
+}

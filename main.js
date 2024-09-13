@@ -37,7 +37,7 @@ const reset = (resetCounters = false) => {
 
 // Función para manejar la operación de venta o reembolso
 const handleOperation = (operation, position, quantity) => {
-    const totalValue = quantity * 500;
+    const totalValue = quantity * 1000;
     if (operation === 'sell') {
         totalSeguros[position - 1] += quantity;
         updateDisplay(`CONF. JUG. # ${position}\n $${totalValue}`);
@@ -76,7 +76,7 @@ document.getElementById('f1').addEventListener('click', () => {
         if (f1PressCount === 2) {
             handleOperation(currentOperation, selectedPosition, quantity);
         } else {
-            updateDisplay(`${currentOperation === 'sell' ? 'CONF.' : 'REEMB.'} JUG. # ${selectedPosition} \n$${quantity * 500}`);
+            updateDisplay(`${currentOperation === 'sell' ? 'CONF.' : 'REEMB.'} JUG. # ${selectedPosition} \n$${quantity * 1000}`);
         }
     }
 });

@@ -37,7 +37,7 @@ const reset = (resetCounters = false) => {
 
 // Función para manejar la operación de venta o reembolso
 const handleOperation = (operation, position, quantity) => {
-    const totalValue = quantity * 500;
+    const totalValue = quantity * 1000;
     if (operation === 'sell') {
         totalSeguros[position - 1] += quantity;
         updateDisplay(`CONF. JUG. # ${position}\n $${totalValue}`);
@@ -76,7 +76,7 @@ document.getElementById('f1').addEventListener('click', () => {
         if (f1PressCount === 2) {
             handleOperation(currentOperation, selectedPosition, quantity);
         } else {
-            updateDisplay(`${currentOperation === 'sell' ? 'CONF.' : 'REEMB.'} JUG. # ${selectedPosition} \n$${quantity * 500}`);
+            updateDisplay(`${currentOperation === 'sell' ? 'CONF.' : 'REEMB.'} JUG. # ${selectedPosition} \n$${quantity * 1000}`);
         }
     }
 });
@@ -275,22 +275,22 @@ const tarjetaJefe = () => {
                     payout = Math.min(activeInsurance * 2500000, 10000000); // 10% del pozo
                     break;
                 case 3:
-                    payout = activeInsurance * 250000;
+                    payout = activeInsurance * 500000;
                     break;
                 case 4:
-                    payout = activeInsurance * 50000;
+                    payout = activeInsurance * 100000;
                     break;
                 case 5:
-                    payout = activeInsurance * 25000;
+                    payout = activeInsurance * 50000;
                     break;
                 case 6:
                     payout = activeInsurance * 10000;
                     break;
                 case 7:
-                    payout = activeInsurance * 20000;
+                    payout = activeInsurance * 40000;
                     break;
                 case 8:
-                    payout = activeInsurance * 10000;
+                    payout = activeInsurance * 20000;
                     break;
                 default:
                     break;

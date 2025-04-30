@@ -1,0 +1,589 @@
+/* =======================================
+   Variables y Reset de Estilos Globales
+========================================== */
+:root {
+  /* Tema Oscuro (Default) */
+  --primary-bg: #1e3c72;
+  --secondary-bg: #2a5298;
+  --font-color: #fff;
+  --button-bg: #ECB365;
+  --button-hover-bg: var(--accent-light);
+  --highlight-color: #ffeb3b;
+  --card-width: 80px;
+  --card-height: 120px;
+  --panel-bg: rgba(255, 255, 255, 0.1);
+  --panel-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+  --card-bg: #fff;
+  --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+  --text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.3);
+  --selected-border: 3px solid var(--highlight-color);
+  --transition-speed: 0.3s;
+
+  /* Tema oscuro - BlackNavyOrange */
+  --primary-dark: #041C32;
+  --secondary-dark: #04293A;
+  --accent-primary: #064663;
+  --accent-light: #ECB365;
+  
+  /* Variables generales */
+  --text-light: #f9f9f9;
+  --text-dark: #333;
+  --radius-small: 5px;
+  --radius-medium: 10px;
+  --radius-large: 15px;
+  --transition-standard: all 0.3s ease;
+  
+  /* Botones */
+  --button-bg: var(--accent-light);
+  --button-text: var(--primary-dark);
+  --button-hover: var(--accent-light);
+  --button-hover-opacity: 0.9;
+}
+
+[data-theme="light"] {
+  --primary-bg: #4a90e2;
+  --secondary-bg: #7cb9e8;
+  --font-color: #333;
+  --button-bg: #ECB365;
+  --button-hover-bg: #ECB365;
+  --highlight-color: #ff6b6b;
+  --panel-bg: rgba(255, 255, 255, 0.9);
+  --panel-shadow: 0 10px 30px rgba(0, 0, 0, 0.15);
+  --card-bg: #fff;
+  --card-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  --text-shadow: none;
+}
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+/* =======================================
+   Estilos Generales
+========================================== */
+body {
+  font-family: 'Arial', sans-serif;
+  background: linear-gradient(135deg, var(--primary-bg), var(--secondary-bg));
+  color: var(--font-color);
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+/* Contenedor para centrar el div principal */
+#contenedor-juego {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+}
+
+/* Contenedor principal del juego */
+#juego {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: var(--panel-shadow);
+  text-align: center;
+}
+
+/* =======================================
+   Header y Marcador
+========================================== */
+header h1 {
+  font-size: 2.5rem;
+  margin-bottom: 20px;
+  color: var(--font-color);
+  text-shadow: var(--text-shadow);
+}
+
+#marcador {
+  display: flex;
+  justify-content: space-around;
+  margin-bottom: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+.marcador-item {
+  flex: 1;
+  text-align: center;
+}
+
+/* =======================================
+   Sección de Cartas
+========================================== */
+/* La clase .cartas conserva el gap */
+.cartas {
+  gap: 10px;
+}
+
+/* Contenedor de 5 cartas (Flop) */
+#flop {
+  display: grid;
+  grid-template-columns: repeat(5, var(--card-width));
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Contenedor de 2 cartas (Ocultas) */
+#ocultas {
+  display: grid;
+  grid-template-columns: repeat(2, var(--card-width));
+  justify-content: center;
+  margin: 20px 0;
+}
+
+/* Estilo para cada carta */
+.carta {
+  width: var(--card-width);
+  height: var(--card-height);
+  border-radius: 10px;
+  background: var(--card-bg);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: var(--card-shadow);
+  transition: transform var(--transition-speed) ease, box-shadow var(--transition-speed) ease;
+  cursor: pointer;
+  overflow: hidden;
+}
+
+.carta.seleccionada {
+  border: var(--selected-border);
+  transform: translateY(-10px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+}
+
+.carta:hover:not(.seleccionada) {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.25);
+}
+
+/* Eliminar delays de animación y animaciones de entrada */
+.carta:nth-child(1), .carta:nth-child(2), .carta:nth-child(3),
+.carta:nth-child(4), .carta:nth-child(5), .carta:nth-child(6),
+.carta:nth-child(7) {
+  animation: none;
+}
+
+.carta img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 10px;
+}
+
+/* =======================================
+   Mensajes, Tiempo e Instrucciones
+========================================== */
+#mensaje {
+  margin-top: 20px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: var(--highlight-color);
+  animation: fadeIn 0.5s ease;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; }
+  to { opacity: 1; }
+}
+
+#tiempo {
+  margin-top: 20px;
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--font-color);
+  text-shadow: var(--text-shadow);
+}
+
+/* =======================================
+   Botones de Control
+========================================== */
+button {
+  background: var(--button-bg);
+  color: var(--font-color);
+  border: none;
+  padding: 10px 20px;
+  border-radius: 25px;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background var(--transition-speed) ease, transform var(--transition-speed) ease;
+  margin: 5px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+button:hover {
+  background: var(--button-hover-bg);
+  transform: translateY(-5px);
+}
+
+/* Botones */
+.btn {
+  background-color: var(--button-bg);
+  color: var(--button-text);
+  border: none;
+  padding: 10px 20px;
+  border-radius: var(--radius-small);
+  cursor: pointer;
+  transition: var(--transition-standard);
+}
+
+.btn:hover {
+  background-color: var(--button-hover);
+  opacity: var(--button-hover-opacity);
+  transform: translateY(-2px);
+}
+
+.btn-outline {
+  background-color: transparent;
+  border: 2px solid var(--accent-light);
+  color: var(--accent-light);
+}
+
+.btn-outline:hover {
+  background-color: var(--accent-light);
+  color: var(--primary-dark);
+}
+
+/* =======================================
+   Footer
+========================================== */
+footer {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 10px;
+  width: 90%;
+  max-width: 800px;
+  box-shadow: var(--panel-shadow);
+  text-align: center;
+  margin: 20px auto;
+  color: var(--font-color);
+  font-size: 1rem;
+}
+
+/* =======================================
+   Estilos para Dispositivos Móviles
+========================================== */
+@media (max-width: 600px) {
+  header h1 {
+    font-size: 2rem;
+  }
+  
+  footer {
+    font-size: 0.8rem;
+  }
+  
+  .carta {
+    width: 60px;
+    height: 90px;
+  }
+  
+  #tiempo {
+    font-size: 1.2rem;
+  }
+  
+  button {
+    padding: 8px 16px;
+    font-size: 0.9rem;
+  }
+}
+
+/* =======================================
+   Animaciones
+========================================== */
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+/* Tema toggle button */
+#theme-toggle {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  background: transparent;
+  border: 2px solid var(--font-color);
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+}
+
+#theme-toggle:hover {
+  transform: rotate(30deg);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+/* Mejoras al layout responsivo */
+@media (max-width: 768px) {
+  #flop {
+    grid-template-columns: repeat(5, minmax(50px, 70px));
+    gap: 5px;
+    overflow-x: auto;
+    padding: 10px 0;
+  }
+  
+  #ocultas {
+    grid-template-columns: repeat(2, minmax(50px, 70px));
+    gap: 10px;
+    justify-content: center;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --card-width: 50px;
+    --card-height: 75px;
+  }
+  
+  #juego {
+    padding: 15px 10px;
+  }
+  
+  header h1 {
+    font-size: 1.7rem;
+    margin-bottom: 15px;
+  }
+  
+  #marcador {
+    font-size: 1rem;
+    flex-wrap: wrap;
+  }
+  
+  #tiempo {
+    font-size: 1.2rem;
+  }
+  
+  button {
+    margin: 3px;
+    padding: 8px 12px;
+    font-size: 0.85rem;
+  }
+  
+  footer {
+    font-size: 0.7rem;
+    padding: 8px;
+    margin: 10px auto;
+  }
+}
+
+/* Añadiendo un modal para instrucciones */
+.modal {
+  display: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 100;
+  align-items: center;
+  justify-content: center;
+}
+
+.modal-content {
+  background: var(--panel-bg);
+  backdrop-filter: blur(10px);
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 600px;
+  max-height: 80vh;
+  overflow-y: auto;
+  box-shadow: var(--panel-shadow);
+  animation: fadeIn 0.3s ease;
+  color: var(--font-color);
+  font-size: 0.9rem;
+}
+
+.modal-close {
+  float: right;
+  font-size: 1.5rem;
+  cursor: pointer;
+}
+
+.modal-open {
+  display: flex !important;
+}
+
+/* Estilos para niveles de dificultad */
+.dificultad {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.nivel-btn {
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.nivel-btn.active {
+  background: var(--highlight-color);
+  color: #333;
+  transform: scale(1.1);
+}
+
+/* Estilo para mostrar récords */
+#records {
+  margin: 15px 0;
+  background: rgba(255, 255, 255, 0.05);
+  border-radius: 10px;
+  padding: 10px;
+}
+
+/* =======================================
+   Estilos para modal de ayuda con ejemplos visuales
+========================================== */
+
+/* Contenedor del modal */
+.modal-content {
+  color: var(--font-color);
+  font-size: 0.9rem;
+}
+
+/* Estilos para los ejemplos de manos */
+.mano-ejemplos {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 20px;
+  margin-top: 20px;
+}
+
+.ejemplo-mano {
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 10px;
+  padding: 15px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.ejemplo-mano:hover {
+  transform: translateY(-5px);
+}
+
+.ejemplo-mano h4 {
+  margin-bottom: 10px;
+  color: var(--highlight-color);
+}
+
+.ejemplo-cartas {
+  display: flex;
+  justify-content: center;
+  gap: 5px;
+  flex-wrap: wrap;
+  margin: 10px 0;
+}
+
+.carta-ejemplo {
+  width: 50px;
+  height: 70px;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+  transition: transform 0.2s ease;
+}
+
+.carta-ejemplo:hover {
+  transform: translateY(-10px) scale(1.5);
+  z-index: 5;
+}
+
+.ejemplo-mano p {
+  font-size: 0.85rem;
+  margin-top: 10px;
+}
+
+/* Responsive para modal de ayuda */
+@media (max-width: 768px) {
+  .mano-ejemplos {
+    grid-template-columns: 1fr;
+  }
+  
+  .modal-content {
+    padding: 15px;
+    width: 95%;
+    max-height: 90vh;
+  }
+  
+  .carta-ejemplo {
+    width: 40px;
+    height: 56px;
+  }
+}
+
+/* Estilos para sección de configuración */
+#configuracion {
+  margin-bottom: 15px;
+}
+
+/* Estilos para selector de número de jugadas */
+.total-jugadas {
+  margin: 15px 0;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  align-items: center;
+}
+
+.jugadas-btn {
+  border-radius: 20px;
+  padding: 5px 15px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.jugadas-btn.active {
+  background: var(--highlight-color);
+  color: #333;
+  transform: scale(1.1);
+}
+
+/* Estilos para modal de acerca de */
+.acerca-contenido {
+  margin-top: 15px;
+  line-height: 1.6;
+}
+
+.acerca-contenido p {
+  margin-bottom: 10px;
+}
+
+.acerca-contenido a {
+  color: var(--highlight-color);
+  text-decoration: none;
+}
+
+.acerca-contenido a:hover {
+  text-decoration: underline;
+}
+
+/* Iconos */
+.icon {
+  color: var(--accent-light);
+  font-size: 1.5rem;
+  transition: var(--transition-standard);
+}
+
+.icon:hover {
+  color: var(--accent-light);
+  opacity: 0.8;
+}

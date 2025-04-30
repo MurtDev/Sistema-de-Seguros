@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Simulador de Texas Hold'em Poker</title>
+  <link rel="stylesheet" href="styles3.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+</head>
+<body>
+  <!-- Botón de cambio de tema -->
+  <button id="theme-toggle" aria-label="Cambiar tema">
+    <i class="fas fa-moon"></i>
+  </button>
+
+  <!-- Contenedor que centra el div principal vertical y horizontalmente -->
+  <div id="contenedor-juego">
+    <div id="juego">
+      <header>
+        <h1>Simulador de Texas Hold'em Poker</h1>
+      </header>
+
+      <section id="marcador">
+        <div id="aciertos" class="marcador-item">✔️: 0</div>
+        <div id="errores" class="marcador-item">❌: 0</div>
+        <div id="jugadas-restantes" class="marcador-item">Jugadas restantes: <span id="jugadas-num">10</span></div>
+      </section>
+
+      <section id="configuracion">
+        <div id="dificultad" class="dificultad">
+          <button class="nivel-btn active" data-tiempo="10">Fácil</button>
+          <button class="nivel-btn" data-tiempo="7">Medio</button>
+          <button class="nivel-btn" data-tiempo="4">Difícil</button>
+        </div>
+        
+        <div id="total-jugadas" class="total-jugadas">
+          <span>Número de jugadas:</span>
+          <button class="jugadas-btn active" data-jugadas="10">10</button>
+          <button class="jugadas-btn" data-jugadas="15">15</button>
+          <button class="jugadas-btn" data-jugadas="20">20</button>
+        </div>
+      </section>
+
+      <main>
+        <section id="cartas">
+          <div id="flop" class="cartas"></div>
+          <div id="ocultas" class="cartas"></div>
+        </section>
+
+        <section id="instrucciones">
+          <p id="pregunta">Selecciona las mejores 5 cartas:</p>
+          <div id="mensaje" role="alert"></div>
+          <div id="tiempo">⏱️: 10s</div>
+        </section>
+
+        <section id="records">
+          <h3>Mejor puntuación: <span id="mejor-score">0</span></h3>
+        </section>
+
+        <section id="controles">
+          <button id="btn-iniciar">Iniciar</button>
+          <button id="btn-reiniciar">Reiniciar</button>
+          <button id="btn-ayuda">Ayuda</button>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <!-- Modal de instrucciones con ejemplos visuales -->
+  <div id="modal-ayuda" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Cómo jugar Texas Hold'em Poker</h2>
+      <p>El objetivo del juego es formar la mejor mano de 5 cartas posible usando una combinación de tus cartas personales  y las cartas comunitarias.</p>
+      
+      <h3>Instrucciones:</h3>
+      <ol>
+        <li>Se te mostrarán 5 cartas comunitarias y 2 cartas personales.</li>
+        <li>Debes seleccionar las 5 mejores cartas para formar la mano major mano.</li>
+        <li>Tienes un tiempo limitado para hacer tu selección.</li>
+        <li>Ganarás puntos por cada selección correcta.</li>
+      </ol>
+      
+      <h3>Jerarquía de manos (de mayor a menor valor):</h3>
+      
+      <div class="mano-ejemplos">
+        <div class="ejemplo-mano">
+          <h4>1. Escalera Real</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/0H.png" alt="10 de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/JH.png" alt="J de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/QH.png" alt="Q de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/KH.png" alt="K de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/AH.png" alt="A de corazones" class="carta-ejemplo">
+          </div>
+          <p>A, K, Q, J, 10 del mismo palo (corazones)</p>
+        </div>
+
+        <div class="ejemplo-mano">
+          <h4>2. Escalera de Color</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/2S.png" alt="2 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/3S.png" alt="3 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/4S.png" alt="4 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/5S.png" alt="5 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/6S.png" alt="6 de picas" class="carta-ejemplo">
+          </div>
+          <p>Cinco cartas consecutivas del mismo palo</p>
+        </div>
+
+        <div class="ejemplo-mano">
+          <h4>3. Póker</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/9C.png" alt="9 de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/9D.png" alt="9 de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/9H.png" alt="9 de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/9S.png" alt="9 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/KD.png" alt="K de diamantes" class="carta-ejemplo">
+          </div>
+          <p>Cuatro cartas del mismo valor</p>
+        </div>
+        
+        <div class="ejemplo-mano">
+          <h4>4. Full House</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/7C.png" alt="7 de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/7D.png" alt="7 de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/7S.png" alt="7 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/JC.png" alt="J de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/JD.png" alt="J de diamantes" class="carta-ejemplo">
+          </div>
+          <p>Un trío y una pareja</p>
+        </div>
+        
+        <div class="ejemplo-mano">
+          <h4>5. Color</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/2D.png" alt="2 de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/5D.png" alt="5 de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/8D.png" alt="8 de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/JD.png" alt="J de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/AD.png" alt="A de diamantes" class="carta-ejemplo">
+          </div>
+          <p>Cinco cartas del mismo palo</p>
+        </div>
+        
+        <div class="ejemplo-mano">
+          <h4>6. Escalera</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/4C.png" alt="4 de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/5H.png" alt="5 de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/6D.png" alt="6 de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/7S.png" alt="7 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/8C.png" alt="8 de tréboles" class="carta-ejemplo">
+          </div>
+          <p>Cinco cartas consecutivas (diferentes palos)</p>
+        </div>
+        
+        <div class="ejemplo-mano">
+          <h4>7. Trío</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/5C.png" alt="5 de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/5H.png" alt="5 de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/5S.png" alt="5 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/QD.png" alt="Q de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/AS.png" alt="A de picas" class="carta-ejemplo">
+          </div>
+          <p>Tres cartas del mismo valor</p>
+        </div>
+        
+        <div class="ejemplo-mano">
+          <h4>8. Doble Par</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/6C.png" alt="6 de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/6H.png" alt="6 de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/KC.png" alt="K de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/KH.png" alt="K de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/2D.png" alt="2 de diamantes" class="carta-ejemplo">
+          </div>
+          <p>Dos pares diferentes</p>
+        </div>
+        
+        <div class="ejemplo-mano">
+          <h4>9. Par</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/QC.png" alt="Q de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/QS.png" alt="Q de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/3D.png" alt="3 de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/8H.png" alt="8 de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/AH.png" alt="A de corazones" class="carta-ejemplo">
+          </div>
+          <p>Dos cartas del mismo valor</p>
+        </div>
+        
+        <div class="ejemplo-mano">
+          <h4>10. Carta Alta</h4>
+          <div class="ejemplo-cartas">
+            <img src="https://deckofcardsapi.com/static/img/AC.png" alt="A de tréboles" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/QH.png" alt="Q de corazones" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/8D.png" alt="8 de diamantes" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/5S.png" alt="5 de picas" class="carta-ejemplo">
+            <img src="https://deckofcardsapi.com/static/img/3H.png" alt="3 de corazones" class="carta-ejemplo">
+          </div>
+          <p>Ninguna combinación, valor más alto</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Footer actualizado -->
+  <footer>
+    <p>&copy; 2025 Desarrollado por Mauricio Navea L. Versión 1.0 | <a href="#" id="link-acerca">Acerca de</a></p>
+    <p>Todos los derechos reservados</p>
+  </footer>
+
+  <!-- Modal de Acerca de -->
+  <div id="modal-acerca" class="modal">
+    <div class="modal-content">
+      <span class="modal-close">&times;</span>
+      <h2>Acerca de</h2>
+      <div class="acerca-contenido">
+        <h3>Información</h3>
+        <p>Esta aplicación web fue desarrollada con fines didácticos y educativos, específicamente para estudiantes en capacitación de póker.</p>
+        <p>Desarrollada por Mauricio Navea L., esta aplicación busca apoyar a los estudiantes en su proceso de aprendizaje y formación.</p>
+        <p>Correo de contacto: navea.dev@gmail.com</p>
+        <p>GitHub: github.com/MurtDev</p>
+        <p>&copy; 2025 Todos los derechos reservados.</p>
+      </div>
+    </div>
+  </div>
+
+  <script src="script.js"></script>
+</body>
+</html>

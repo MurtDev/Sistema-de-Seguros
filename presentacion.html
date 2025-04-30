@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mauricio Navea L. - Portafolio Web</title>
+    <link rel="stylesheet" href="presentacion-styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Playfair+Display:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div class="background-overlay"></div>
+    
+    <header>
+        <div class="header-content">
+            <div class="logo">
+                <i class="fas fa-code"></i>
+                <h1>Mauricio Navea L.</h1>
+            </div>
+            <nav>
+                <ul>
+                    <li><a href="#proyectos">Proyectos</a></li>
+                    <li><a href="#skills">Habilidades</a></li>
+                    <li><a href="#sobre-mi">Sobre Mí</a></li>
+                    <li><a href="#contacto">Contacto</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <section class="hero">
+        <div class="container">
+            <h1 class="heading-main">Desarrollador Full Stack</h1>
+            <p class="subheading">Especializado en soluciones tecnológicas innovadoras y aplicaciones interactivas</p>
+            <div class="cta-buttons">
+                <a href="#proyectos" class="btn btn-primary">Ver Proyectos</a>
+                <a href="#contacto" class="btn btn-secondary">Contáctame</a>
+            </div>
+            <div class="hero-cards">
+                <div class="card-graphic card-spade"><i class="fas fa-spade"></i></div>
+                <div class="card-graphic card-heart"><i class="fas fa-heart"></i></div>
+                <div class="card-graphic card-club"><i class="fas fa-club"></i></div>
+                <div class="card-graphic card-diamond"><i class="fas fa-diamond"></i></div>
+            </div>
+        </div>
+    </section>
+
+    <section id="proyectos" class="tools">
+        <div class="container">
+            <h2 class="section-title">Mis Proyectos</h2>
+            <p class="section-description">Algunos de mis proyectos y desarrollos destacados</p>
+            
+            <!-- Navegación de categorías -->
+            <div class="projects-nav">
+                <button class="project-category-btn active" data-category="all">Todos</button>
+                <button class="project-category-btn" data-category="education">Educativos</button>
+                <button class="project-category-btn" data-category="upcoming">Próximamente</button>
+            </div>
+            
+            <div class="projects-container">
+                <!-- Categoría: Proyectos Educativos -->
+                <div class="project-category education">
+                    <h3 class="category-title">Proyectos Educativos</h3>
+                    <div class="tools-grid">
+                        <!-- Proyecto: Simulador de Texas Hold'em Poker -->
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-heart"></i>
+                            </div>
+                            <h3>Simulador de Texas Hold'em Poker</h3>
+                            <p>Herramienta educativa para entrenar la identificación de las mejores manos en Texas Hold'em.</p>
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Diferentes niveles de dificultad</li>
+                                <li><i class="fas fa-check"></i> Evaluación en tiempo real</li>
+                                <li><i class="fas fa-check"></i> Tema claro/oscuro</li>
+                            </ul>
+                            <div class="tool-actions">
+                                <a href="index.html" class="btn btn-tool" target="_blank">Ver Proyecto</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Proyecto: Máquina Virtual de Seguros (movido a educativos) -->
+                        <div class="tool-card">
+                            <div class="tool-icon">
+                                <i class="fas fa-shield-alt"></i>
+                            </div>
+                            <h3>Máquina Virtual de Seguros</h3>
+                            <p>Herramienta para simular la venta de seguros de forma controlada en mesas de póker.</p>
+                            <ul class="features">
+                                <li><i class="fas fa-check"></i> Simulacion real</li>
+                                <li><i class="fas fa-check"></i> Vista desde el Croupier</li>
+                                <li><i class="fas fa-check"></i> Interfaz intuitiva</li>
+                            </ul>
+                            <div class="tool-actions">
+                                <a href="#" class="btn btn-tool" target="_blank">Ver Proyecto</a>
+                            </div>
+                        </div>
+                        
+                        <!-- Proyecto: Curso Interactivo de Probabilidades (en desarrollo) -->
+                        <div class="tool-card coming-soon">
+                            <div class="tool-icon">
+                                <i class="fas fa-percentage"></i>
+                            </div>
+                            <h3>Curso Interactivo de Probabilidades</h3>
+                            <p>Plataforma educativa para el aprendizaje de probabilidades en juegos de azar.</p>
+                            <div class="tool-actions">
+                                <span class="badge">En desarrollo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Categoría: Próximos Proyectos -->
+                <div class="project-category upcoming">
+                    <h3 class="category-title">Próximos Proyectos</h3>
+                    <div class="tools-grid">
+                        <!-- Dashboard Analítico (movido a próximos proyectos) -->
+                        <div class="tool-card coming-soon">
+                            <div class="tool-icon">
+                                <i class="fas fa-chart-line"></i>
+                            </div>
+                            <h3>Dashboard Analítico</h3>
+                            <p>Panel de control con visualización de datos para análisis de rendimiento.</p>
+                            <div class="tool-actions">
+                                <span class="badge">En desarrollo</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Proyecto Próximo 1 -->
+                        <div class="tool-card coming-soon">
+                            <div class="tool-icon">
+                                <i class="fas fa-brain"></i>
+                            </div>
+                            <h3>Entrenador de Decisiones</h3>
+                            <p>Simulador de situaciones para entrenar la toma de decisiones bajo presión.</p>
+                            <div class="tool-actions">
+                                <span class="badge">En desarrollo</span>
+                            </div>
+                        </div>
+                        
+                        <!-- Proyecto Próximo 2 -->
+                        <div class="tool-card coming-soon">
+                            <div class="tool-icon">
+                                <i class="fas fa-mobile-alt"></i>
+                            </div>
+                            <h3>App Móvil de Entrenamientos</h3>
+                            <p>Aplicación Android para ejercicios de entrenamiento mental diario.</p>
+                            <div class="tool-actions">
+                                <span class="badge">En desarrollo</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="features-section">
+        <div class="container">
+            <h2 class="section-title">Mis Habilidades</h2>
+            <div class="features-grid">
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-code"></i>
+                    </div>
+                    <h3>Desarrollo Frontend</h3>
+                    <p>HTML5, CSS3, JavaScript, React, Bootstrap, diseño responsive y experiencia de usuario.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-database"></i>
+                    </div>
+                    <h3>Desarrollo Backend</h3>
+                    <p>Node.js, Python, Django, Express, APIs REST, autenticación y seguridad web.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-palette"></i>
+                    </div>
+                    <h3>Diseño UI/UX</h3>
+                    <p>Diseño de interfaces intuitivas, experiencias de usuario atractivas y accesibilidad.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-mobile-alt"></i>
+                    </div>
+                    <h3>Desarrollo Móvil</h3>
+                    <p>Aplicaciones Android con Kotlin, interfaces responsivas y optimización de rendimiento.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-tasks"></i>
+                    </div>
+                    <h3>Análisis de Proyectos</h3>
+                    <p>Requerimientos, documentación, metodologías ágiles, presupuestos y planificación de sprints.</p>
+                </div>
+                <div class="feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-check-double"></i>
+                    </div>
+                    <h3>QA y Testing</h3>
+                    <p>Pruebas unitarias, integración, funcionales, automatización y control de calidad.</p>
+                </div>
+            </div>
+            <!-- Se ha eliminado el div de skills-container con las barras de progreso -->
+        </div>
+    </section>
+
+    <section id="sobre-mi" class="about">
+        <div class="container">
+            <h2 class="section-title">Sobre Mí</h2>
+            <div class="about-content">
+                <div class="about-image">
+                    <img src="https://avatars.githubusercontent.com/u/169404852?v=4" alt="Mauricio Navea">
+                </div>
+                <div class="about-text-container">
+                    <p class="about-text">
+                        <strong>Desarrollador Full Stack con amplia experiencia técnica</strong>, especializado en crear 
+                        aplicaciones interactivas y educativas. Mi formación como Analista Programador me permite 
+                        abordar proyectos tanto desde el frontend como backend con sólidos conocimientos en 
+                        múltiples tecnologías y lenguajes de programación.
+                    </p>
+                    <p class="about-text">
+                        Domino el desarrollo web con <strong>HTML5, CSS3, JavaScript, React</strong> para el frontend, mientras
+                        que en backend trabajo con <strong>Node.js, Python y Django</strong>. Tengo experiencia en bases de datos 
+                        relacionales como <strong>MySQL y PostgreSQL</strong>, así como en bases de datos no relacionales.
+                    </p>
+                    <p class="about-text">
+                        Mi experiencia también abarca el <strong>desarrollo de aplicaciones Android con Kotlin</strong>, 
+                        el <strong>análisis de proyectos</strong> y la implementación de procesos de <strong>QA y testing</strong>. 
+                        Me destaco por crear soluciones integrales que combinan funcionalidad, rendimiento y 
+                        excelente experiencia de usuario.
+                    </p>
+                    <!-- La sección about-badges ha sido eliminada -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contacto" class="contact">
+        <div class="container">
+            <h2 class="section-title">Contáctame</h2>
+            <p class="section-description">¿Tienes alguna pregunta o propuesta de proyecto? No dudes en ponerte en contacto conmigo</p>
+            
+            <div class="contact-info">
+                <div class="contact-item">
+                    <i class="fas fa-envelope"></i>
+                    <a href="mailto:navea.dev@gmail.com"><h3>Email</h3></a>
+                </div>
+                <div class="contact-item">
+                    <i class="fab fa-github"></i>
+                    <a href="https://github.com/murtdev" target="_blank"><h3>GitHub</h3></a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-logo">
+                    <i class="fas fa-code"></i>
+                    <span>Mauricio Navea L.</span>
+                </div>
+                <div class="footer-links">
+                    <a href="#proyectos">Proyectos</a>
+                    <a href="#skills">Habilidades</a></li>
+                    <a href="#sobre-mi">Sobre Mí</a>
+                    <a href="#contacto">Contacto</a>
+                </div>
+                <div class="footer-social">
+                    <a href="#" target="_blank"><i class="fab fa-github"></i></a>
+                    <a href="https://linkedin.com" target="_blank"><i class="fab fa-linkedin"></i></a>
+                    <a href="https://twitter.com" target="_blank"><i class="fab fa-twitter"></i></a>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Mauricio Navea L. | Desarrollador Full Stack | Todos los derechos reservados</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="presentacion-script.js"></script>
+</body>
+</html>

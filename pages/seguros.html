@@ -1,0 +1,222 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Máquina Virtual de Seguros</title>
+    <meta name="description" content="Simulador educativo de máquina de seguros para mesas de póker.">
+    <link rel="stylesheet" href="../css/machine.css">
+    <link rel="stylesheet" href="../css/modal.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Share+Tech+Mono&family=Source+Sans+3:wght@400;600;700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <div class="machine">
+        <header class="machine-header">
+            <a class="back-link" href="../index.html">Volver al portafolio</a>
+            <div class="machine-title">
+                <h1>Máquina Virtual de Seguros</h1>
+                <p>Mesa estándar · $1.000 por seguro</p>
+            </div>
+            <div class="machine-toolbar">
+                <span id="status-badge" class="status-badge" data-status="listo">LISTO</span>
+                <button id="mute-button" class="ghost-button" type="button" aria-pressed="false">Sonido on</button>
+            </div>
+        </header>
+
+        <div class="machine-body">
+            <section class="terminal" aria-label="Terminal de la máquina">
+                <div class="display" id="display" role="status" aria-live="polite">SISTEMA LISTO !<br> TOCAR * EMPEZAR *</div>
+
+                <div class="function-row">
+                    <div>
+                        <span class="button-label">ACEPTAR</span>
+                        <button id="f1" type="button">F1</button>
+                    </div>
+                    <div>
+                        <span class="button-label">VENDER</span>
+                        <button id="f2" type="button">F2</button>
+                    </div>
+                    <div>
+                        <span class="button-label">REEMBOLSAR</span>
+                        <button id="f3" type="button">F3</button>
+                    </div>
+                    <div>
+                        <span class="button-label">SALIR</span>
+                        <button id="f4" type="button">F4</button>
+                    </div>
+                </div>
+
+                <div class="keypad" aria-label="Teclado numérico">
+                    <div class="row">
+                        <button class="number" type="button" data-value="1">1</button>
+                        <button class="number" type="button" data-value="2">2</button>
+                        <button class="number" type="button" data-value="3">3</button>
+                    </div>
+                    <div class="row">
+                        <button class="number" type="button" data-value="4">4</button>
+                        <button class="number" type="button" data-value="5">5</button>
+                        <button class="number" type="button" data-value="6">6</button>
+                    </div>
+                    <div class="row">
+                        <button class="number" type="button" data-value="7">7</button>
+                        <button class="number" type="button" data-value="8">8</button>
+                        <button class="number" type="button" data-value="9">9</button>
+                    </div>
+                </div>
+
+                <div class="control-buttons">
+                    <div>
+                        <button id="start" class="empezar" type="button" aria-label="Empezar mano"></button>
+                        <span class="button-label">EMPEZAR</span>
+                    </div>
+                    <div>
+                        <button class="number" type="button" data-value="0">0</button>
+                    </div>
+                    <div>
+                        <button id="stop" class="parar" type="button" aria-label="Parar mano"></button>
+                        <span class="button-label">PARAR</span>
+                    </div>
+                </div>
+            </section>
+
+            <section class="side-panel" aria-label="Puestos de la mesa">
+                <div class="table-summary">
+                    <span>Créditos en mesa</span>
+                    <strong id="mesa-total">0</strong>
+                </div>
+                <div class="info-column">
+                    <article class="info-box" id="player-box-j1">
+                        <div class="player-title">Puesto 1</div>
+                        <div id="total-seguros-j1">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j1">JUGADOR: 0</div>
+                            <button id="mark-button-j1" type="button" aria-label="Marcar seguros del puesto 1"></button>
+                        </div>
+                        <div class="mark-dots" id="mark-dots-j1" aria-hidden="true"></div>
+                    </article>
+                    <article class="info-box" id="player-box-j3">
+                        <div class="player-title">Puesto 3</div>
+                        <div id="total-seguros-j3">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j3">JUGADOR: 0</div>
+                            <button id="mark-button-j3" type="button" aria-label="Marcar seguros del puesto 3"></button>
+                        </div>
+                        <div class="mark-dots" id="mark-dots-j3" aria-hidden="true"></div>
+                    </article>
+                    <article class="info-box" id="player-box-j5">
+                        <div class="player-title">Puesto 5</div>
+                        <div id="total-seguros-j5">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j5">JUGADOR: 0</div>
+                            <button id="mark-button-j5" type="button" aria-label="Marcar seguros del puesto 5"></button>
+                        </div>
+                        <div class="mark-dots" id="mark-dots-j5" aria-hidden="true"></div>
+                    </article>
+                </div>
+                <div class="info-column">
+                    <article class="info-box" id="player-box-j2">
+                        <div class="player-title">Puesto 2</div>
+                        <div id="total-seguros-j2">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j2">JUGADOR: 0</div>
+                            <button id="mark-button-j2" type="button" aria-label="Marcar seguros del puesto 2"></button>
+                        </div>
+                        <div class="mark-dots" id="mark-dots-j2" aria-hidden="true"></div>
+                    </article>
+                    <article class="info-box" id="player-box-j4">
+                        <div class="player-title">Puesto 4</div>
+                        <div id="total-seguros-j4">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j4">JUGADOR: 0</div>
+                            <button id="mark-button-j4" type="button" aria-label="Marcar seguros del puesto 4"></button>
+                        </div>
+                        <div class="mark-dots" id="mark-dots-j4" aria-hidden="true"></div>
+                    </article>
+                    <article class="info-box" id="player-box-j6">
+                        <div class="player-title">Puesto 6</div>
+                        <div id="total-seguros-j6">CREDITOS: 0</div>
+                        <div class="current-and-mark">
+                            <div id="current-count-j6">JUGADOR: 0</div>
+                            <button id="mark-button-j6" type="button" aria-label="Marcar seguros del puesto 6"></button>
+                        </div>
+                        <div class="mark-dots" id="mark-dots-j6" aria-hidden="true"></div>
+                    </article>
+                </div>
+            </section>
+        </div>
+
+        <section class="session-bar">
+            <div class="session-stats">
+                <p>Vendidos: <strong id="stat-sold">0</strong></p>
+                <p>Reembolsados: <strong id="stat-refund">0</strong></p>
+            </div>
+            <div class="session-actions">
+                <a class="credits-button secondary" href="jefe.html">Modo jefe</a>
+                <button class="credits-button" type="button" data-open-modal="modal">Acerca de</button>
+                <button class="credits-button" type="button" data-open-modal="modal1">Instrucciones</button>
+            </div>
+        </section>
+
+        <section class="history-panel" aria-label="Historial de la sesión">
+            <h2>Historial de la sesión</h2>
+            <ul id="history-list"></ul>
+        </section>
+    </div>
+
+    <footer>
+        <p>Desarrollado por <strong>Mauricio Navea L.</strong></p>
+        <p>versión 2.0</p>
+        <p>&copy; 2026 Todos los derechos reservados.</p>
+    </footer>
+
+    <div id="modal" class="modal" role="dialog" aria-labelledby="modal-title" aria-modal="true">
+        <div class="modal-content">
+            <h2 id="modal-title">Información</h2>
+            <p>Esta aplicación web fue desarrollada con fines didácticos y educativos, específicamente para estudiantes en capacitación de póker. Su objetivo es servir como una herramienta práctica y una simulación para que los estudiantes aprendan a usar una máquina de seguros en un entorno controlado.</p>
+            <p>El proyecto está diseñado para ayudar a los usuarios a familiarizarse con el proceso de venta y reembolso de seguros, proporcionando un entorno interactivo donde pueden practicar y perfeccionar sus habilidades.</p>
+            <p>Desarrollada por Mauricio Navea L., esta aplicación busca apoyar a los estudiantes en su proceso de aprendizaje y formación.</p>
+            <p>Correo de contacto: <a href="mailto:navea.dev@gmail.com">navea.dev@gmail.com</a></p>
+            <p>GitHub: <a href="https://github.com/MurtDev" target="_blank" rel="noopener noreferrer">github.com/MurtDev</a></p>
+            <p>&copy; 2026 Todos los derechos reservados.</p>
+            <button type="button" data-close-modal>Cerrar</button>
+        </div>
+    </div>
+
+    <div id="modal1" class="modal" role="dialog" aria-labelledby="modal1-title" aria-modal="true">
+        <div class="modal-content">
+            <h2 id="modal1-title">Instrucciones del juego</h2>
+            <p>Cada seguro cuesta <strong>$1.000</strong>. El jugador puede marcar un máximo de <strong>5 seguros</strong> por mano.</p>
+            <p>También puedes usar el teclado: <strong>F1–F4</strong>, números <strong>0–9</strong>, <strong>Enter</strong> para aceptar y <strong>Esc</strong> para salir.</p>
+            <p>Para vender seguros:</p>
+            <ul>
+                <li>Presiona <strong>F2</strong>.</li>
+                <li>Selecciona el puesto del jugador (del <strong>1</strong> al <strong>6</strong>).</li>
+                <li>Ingresa la cantidad de seguros a vender (máximo 50).</li>
+                <li>Confirma presionando <strong>F1</strong> dos veces.</li>
+            </ul>
+            <p>Para reembolsar seguros:</p>
+            <ul>
+                <li>Presiona <strong>F3</strong>.</li>
+                <li>Selecciona el puesto del jugador (del <strong>1</strong> al <strong>6</strong>).</li>
+                <li>Aparece el total de seguros de ese puesto. Confirma con <strong>F1</strong> dos veces para devolver todo.</li>
+                <li>Si quieres menos, escribe otra cantidad y confirma con <strong>F1</strong>.</li>
+            </ul>
+            <p>Para jugar una mano:</p>
+            <ul>
+                <li>Marca los seguros de cada puesto con el botón circular.</li>
+                <li>Presiona <strong>EMPEZAR</strong> para descontar las marcas.</li>
+                <li>Presiona <strong>PARAR</strong> y luego <strong>F4</strong> para volver a la mano, o <strong>PARAR</strong> otra vez para cerrarla.</li>
+            </ul>
+            <button type="button" data-close-modal>Cerrar</button>
+        </div>
+    </div>
+
+    <script src="../js/machine/core.js"></script>
+    <script src="../js/machine/app.js"></script>
+</body>
+
+</html>

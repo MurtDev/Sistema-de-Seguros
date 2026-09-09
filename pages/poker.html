@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Entrenador de Texas Hold'em</title>
+  <meta name="description" content="Entrena la lectura de manos en Texas Hold'em: elige las 5 mejores cartas entre comunitarias y tu mano.">
+  <link rel="stylesheet" href="../css/poker.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600;700;800&display=swap" rel="stylesheet">
+</head>
+<body>
+  <a class="back-home" href="../index.html">Volver al portafolio</a>
+  <button id="theme-toggle" type="button" aria-label="Cambiar tema">☾</button>
+
+  <div id="contenedor-juego">
+    <div id="juego">
+      <header>
+        <p class="kicker">Entrenador de lectura</p>
+        <h1>Texas Hold'em</h1>
+      </header>
+
+      <section id="marcador" aria-label="Marcador">
+        <div class="marcador-item">Aciertos <strong id="aciertos">0</strong></div>
+        <div class="marcador-item">Errores <strong id="errores">0</strong></div>
+        <div class="marcador-item">Racha <strong id="racha">0</strong></div>
+        <div class="marcador-item">Mano <strong><span id="mano-actual">0</span>/<span id="jugadas-num">10</span></strong></div>
+      </section>
+
+      <section id="configuracion">
+        <div class="config-group">
+          <span>Modo</span>
+          <div class="btn-row">
+            <button type="button" class="modo-btn active" data-modo="entrenamiento" data-tip="Hay cronómetro. Al elegir la quinta carta se evalúa solo. Sirve para practicar rapidez y precisión.">Entrenamiento</button>
+            <button type="button" class="modo-btn" data-modo="estudio" data-tip="Sin tiempo. Puedes corregir las cartas, confirmar la mano o revelar la respuesta. Sirve para aprender con calma.">Estudio</button>
+          </div>
+        </div>
+        <div class="config-group" id="dificultad">
+          <span>Tiempo</span>
+          <div class="btn-row">
+            <button type="button" class="nivel-btn active" data-tiempo="12">Fácil</button>
+            <button type="button" class="nivel-btn" data-tiempo="8">Medio</button>
+            <button type="button" class="nivel-btn" data-tiempo="5">Difícil</button>
+          </div>
+        </div>
+        <div class="config-group" id="total-jugadas">
+          <span>Manos</span>
+          <div class="btn-row">
+            <button type="button" class="jugadas-btn active" data-jugadas="10">10</button>
+            <button type="button" class="jugadas-btn" data-jugadas="15">15</button>
+            <button type="button" class="jugadas-btn" data-jugadas="20">20</button>
+          </div>
+        </div>
+      </section>
+
+      <main>
+        <section class="felt" aria-label="Mesa de póker">
+          <div class="board-block">
+            <div class="board-label">
+              <span>Cartas comunitarias</span>
+            </div>
+            <div id="flop" class="cartas"></div>
+          </div>
+          <div class="board-block hole-block">
+            <div class="board-label">
+              <span>Tu mano</span>
+            </div>
+            <div id="ocultas" class="cartas"></div>
+          </div>
+        </section>
+
+        <section id="instrucciones">
+          <p id="pregunta">Selecciona las 5 cartas que forman la mejor mano</p>
+          <div class="selection-meta">
+            <p id="seleccion-count">0 / 5</p>
+            <p id="mano-preview">Tu selección aparecerá aquí</p>
+          </div>
+          <div id="mensaje" role="status" aria-live="polite"></div>
+          <div class="timer-wrap" id="timer-wrap">
+            <div id="tiempo">12s</div>
+            <div class="timer-bar" aria-hidden="true"><span id="timer-fill"></span></div>
+          </div>
+        </section>
+
+        <section id="records">
+          <p>Mejor racha: <strong id="mejor-racha">0</strong></p>
+          <p>Mejor precisión: <strong id="mejor-precision">0%</strong></p>
+          <p>Mejor puntuación: <strong id="mejor-score">0</strong></p>
+        </section>
+
+        <section id="controles">
+          <button type="button" id="btn-iniciar">Iniciar</button>
+          <button type="button" id="btn-confirmar" hidden>Confirmar mano</button>
+          <button type="button" id="btn-revelar" hidden>Revelar</button>
+          <button type="button" id="btn-siguiente" hidden>Siguiente</button>
+          <button type="button" id="btn-reiniciar">Reiniciar</button>
+          <button type="button" id="btn-ayuda">Ayuda</button>
+        </section>
+      </main>
+    </div>
+  </div>
+
+  <div id="modal-ayuda" class="modal" role="dialog" aria-labelledby="ayuda-title" aria-modal="true">
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Cerrar">&times;</button>
+      <h2 id="ayuda-title">Cómo leer una mano de Hold'em</h2>
+      <p>Usa las 5 comunitarias y tus 2 cartas privadas. Debes elegir exactamente las 5 que forman la mejor combinación posible.</p>
+      <ol>
+        <li>En <strong>Entrenamiento</strong> hay cronómetro: al elegir la quinta carta se evalúa solo.</li>
+        <li>En <strong>Estudio</strong> no hay tiempo: puedes corregir y confirmar, o revelar la respuesta.</li>
+        <li>Después de cada mano se marcan en verde las 5 cartas óptimas.</li>
+      </ol>
+      <h3>Jerarquía de manos</h3>
+      <div class="mano-ejemplos" id="mano-ejemplos"></div>
+    </div>
+  </div>
+
+  <div id="modal-resultado" class="modal" role="dialog" aria-labelledby="resultado-title" aria-modal="true">
+    <div class="modal-content result-card">
+      <button type="button" class="modal-close" aria-label="Cerrar">&times;</button>
+      <h2 id="resultado-title">Sesión terminada</h2>
+      <p id="resultado-subtitulo"></p>
+      <ul class="result-stats">
+        <li>Aciertos <strong id="res-aciertos">0</strong></li>
+        <li>Errores <strong id="res-errores">0</strong></li>
+        <li>Precisión <strong id="res-precision">0%</strong></li>
+        <li>Mejor racha <strong id="res-racha">0</strong></li>
+      </ul>
+      <button type="button" id="btn-jugar-otra">Jugar otra vez</button>
+    </div>
+  </div>
+
+  <div id="modal-acerca" class="modal" role="dialog" aria-labelledby="acerca-title" aria-modal="true">
+    <div class="modal-content">
+      <button type="button" class="modal-close" aria-label="Cerrar">&times;</button>
+      <h2 id="acerca-title">Acerca de</h2>
+      <p>Entrenador educativo para identificar la mejor mano de 5 cartas en Texas Hold'em.</p>
+      <p>Desarrollado por Mauricio Navea L.</p>
+      <p>Correo: <a href="mailto:navea.dev@gmail.com">navea.dev@gmail.com</a></p>
+      <p>GitHub: <a href="https://github.com/MurtDev" target="_blank" rel="noopener noreferrer">github.com/MurtDev</a></p>
+    </div>
+  </div>
+
+  <footer>
+    <p>&copy; 2026 Mauricio Navea L. · Entrenador Hold'em v2.0 · <a href="#" id="link-acerca">Acerca de</a></p>
+  </footer>
+
+  <script src="../js/poker.js"></script>
+</body>
+</html>
